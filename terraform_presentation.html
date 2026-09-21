@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terraform Professional Expert Mastery - Premium Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            page-break-after: always;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media print {
+            .page { page-break-after: always; }
+        }
+
+        /* ===== COLOR PALETTE ===== */
+        :root {
+            --navy: #0a1628;
+            --dark-navy: #051020;
+            --electric-blue: #2563eb;
+            --purple: #7c3aed;
+            --cyan: #00d4ff;
+            --soft-green: #10b981;
+            --orange: #ff6b35;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --text-secondary: #666666;
+            --border: #e5e7eb;
+        }
+
+        /* ===== PAGE 1: COVER ===== */
+        .page-cover {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--navy) 50%, #1a3a52 100%);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--cyan) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .page-cover::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .cover-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .cover-content h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            color: #b0c4de;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cover-meta {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            font-size: 0.95rem;
+            color: #7dd3fc;
+        }
+
+        .cover-meta div {
+            text-align: center;
+        }
+
+        .cover-meta-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .cover-footer {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7dd3fc;
+        }
+
+        /* ===== GENERAL PAGE STYLES ===== */
+        .page-content {
+            width: 100%;
+            height: 100%;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .page-header {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .page-title {
+            color: var(--electric-blue);
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--cyan));
+            border-radius: 2px;
+        }
+
+        /* ===== CARD STYLES ===== */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--electric-blue);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:nth-child(2) {
+            border-left-color: var(--purple);
+        }
+
+        .info-card:nth-child(3) {
+            border-left-color: var(--cyan);
+        }
+
+        .info-card h3 {
+            font-size: 2rem;
+            color: var(--electric-blue);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .info-card:nth-child(2) h3 {
+            color: var(--purple);
+        }
+
+        .info-card:nth-child(3) h3 {
+            color: var(--cyan);
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(90deg, var(--navy), #1a3a52);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .comparison-table .positive {
+            color: var(--soft-green);
+            font-weight: 600;
+        }
+
+        .comparison-table .negative {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        /* ===== WORKFLOW STEPS ===== */
+        .workflow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .workflow-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 15px;
+        }
+
+        .workflow-step h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .workflow-step p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .workflow-arrow {
+            font-size: 2rem;
+            color: var(--cyan);
+            margin-bottom: 20px;
+        }
+
+        /* ===== ARCHITECTURE DIAGRAM ===== */
+        .architecture {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .arch-layer {
+            background: white;
+            border: 2px solid var(--electric-blue);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .arch-layer::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--cyan));
+            border-radius: 50%;
+        }
+
+        .arch-layer h4 {
+            color: var(--electric-blue);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .arch-layer p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== FEATURE GRID ===== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 3px solid var(--electric-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:nth-child(2) {
+            border-top-color: var(--purple);
+        }
+
+        .feature-card:nth-child(3) {
+            border-top-color: var(--cyan);
+        }
+
+        .feature-card:nth-child(4) {
+            border-top-color: var(--soft-green);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h4 {
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== RESULTS/BENEFITS ===== */
+        .results-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+            border: 2px solid var(--electric-blue);
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .result-card:nth-child(2) {
+            border-color: var(--purple);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(0, 212, 255, 0.1));
+        }
+
+        .result-card:nth-child(3) {
+            border-color: var(--cyan);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(16, 185, 129, 0.1));
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+            margin-top: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--electric-blue), var(--cyan));
+        }
+
+        .timeline-item {
+            margin-left: 50px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -58px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border: 3px solid var(--electric-blue);
+            border-radius: 50%;
+        }
+
+        .timeline-item h4 {
+            color: var(--navy);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== 4 PILLARS ===== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .pillar {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 4px solid var(--electric-blue);
+        }
+
+        .pillar:nth-child(2) {
+            border-top-color: var(--purple);
+        }
+
+        .pillar:nth-child(3) {
+            border-top-color: var(--cyan);
+        }
+
+        .pillar:nth-child(4) {
+            border-top-color: var(--soft-green);
+        }
+
+        .pillar h3 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .pillar ul {
+            list-style: none;
+        }
+
+        .pillar li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .pillar li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--soft-green);
+            font-weight: bold;
+        }
+
+        /* ===== KEY TAKEAWAYS ===== */
+        .takeaways {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .takeaway {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--electric-blue);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .takeaway:nth-child(2) {
+            border-left-color: var(--purple);
+        }
+
+        .takeaway:nth-child(3) {
+            border-left-color: var(--cyan);
+        }
+
+        .takeaway:nth-child(4) {
+            border-left-color: var(--soft-green);
+        }
+
+        .takeaway-icon {
+            font-size: 1.8rem;
+            min-width: 40px;
+        }
+
+        .takeaway p {
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        /* ===== DUAL COLUMN ===== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .two-column h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .two-column ul {
+            list-style: none;
+        }
+
+        .two-column li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .two-column li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        /* ===== CHALLENGE SOLUTION ===== */
+        .challenge-solution {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 30px;
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .challenge, .solution {
+            padding: 25px;
+        }
+
+        .challenge {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 4px solid var(--orange);
+            border-radius: 8px;
+        }
+
+        .challenge h4 {
+            color: var(--orange);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .solution {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--soft-green);
+            border-radius: 8px;
+        }
+
+        .solution h4 {
+            color: var(--soft-green);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .cs-arrow {
+            font-size: 2.5rem;
+            color: var(--electric-blue);
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 60px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== LIGHT BG PAGES ===== */
+        .page-light {
+            background: var(--light-bg);
+        }
+
+        /* ===== THANK YOU PAGE ===== */
+        .thank-you-content {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .thank-you-content h1 {
+            font-size: 4rem;
+            color: var(--navy);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .thank-you-content p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+        }
+
+        .contact-info {
+            font-size: 1rem;
+            color: var(--navy);
+            line-height: 2;
+        }
+
+        .contact-info strong {
+            color: var(--electric-blue);
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+    <div class="cover-content">
+        <h1>TERRAFORM</h1>
+        <p class="cover-subtitle">Professional Expert Mastery</p>
+        <p class="cover-subtitle" style="font-size: 1.1rem; color: #7dd3fc; font-weight: 400;">Infrastructure as Code Mastery from Beginner to Senior DevOps Expert</p>
+        
+        <div class="cover-meta">
+            <div>
+                <div class="cover-meta-number">26</div>
+                <div>Expert Modules</div>
+            </div>
+            <div>
+                <div class="cover-meta-number">300+</div>
+                <div>Code Examples</div>
+            </div>
+            <div>
+                <div class="cover-meta-number">6+</div>
+                <div>Complete Labs</div>
+            </div>
+            <div>
+                <div class="cover-meta-number">12</div>
+                <div>Week Mastery</div>
+            </div>
+        </div>
+    </div>
+    <div class="cover-footer">
+        Premium Edition v4.0 | 15+ Years of Production Experience | September 2026
+    </div>
+    <div class="page-number">1</div>
+</div>
+
+<!-- PAGE 2: EXECUTIVE SUMMARY -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Executive Overview</div>
+        <h2 class="page-title">Terraform at a Glance</h2>
+        
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>60x</h3>
+                <p><strong>Faster Deployments</strong> — Manual 2 hours → Terraform 3 minutes</p>
+            </div>
+            <div class="info-card">
+                <h3>100%</h3>
+                <p><strong>Reproducible</strong> — Deploy identical infrastructure anytime</p>
+            </div>
+            <div class="info-card">
+                <h3>∞</h3>
+                <p><strong>Scalable</strong> — Same code: 1 server to 10,000 resources</p>
+            </div>
+        </div>
+
+        <p style="margin-top: 40px; font-size: 1rem; color: var(--text-secondary); line-height: 1.8;">
+            Terraform transforms infrastructure management from manual, error-prone processes into <strong>version-controlled, auditable, automated workflows</strong>. 
+            This course provides comprehensive mastery across 6 progressive levels, from foundational concepts through enterprise-scale deployments, 
+            backed by 15+ years of production experience and proven patterns from Netflix, Google, and Amazon.
+        </p>
+
+        <div class="page-number">2</div>
+    </div>
+</div>
+
+<!-- PAGE 3: PROBLEM/CHALLENGE -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">The Challenge</div>
+        <h2 class="page-title">Manual Infrastructure Deployment</h2>
+
+        <table class="comparison-table" style="width: 100%; margin-top: 40px;">
+            <thead>
+                <tr>
+                    <th style="width: 40%;">Manual Process (2010s)</th>
+                    <th style="width: 20%; text-align: center;">Impact</th>
+                    <th style="width: 40%;">Terraform Solution (2024+)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Click AWS Console, launch instances manually</td>
+                    <td style="text-align: center;"><span class="negative">❌ 2 hours</span></td>
+                    <td><strong>Write code once, deploy in seconds</strong></td>
+                </tr>
+                <tr>
+                    <td>No documentation, impossible to replicate</td>
+                    <td style="text-align: center;"><span class="negative">❌ Lost</span></td>
+                    <td><strong>Code IS documentation</strong></td>
+                </tr>
+                <tr>
+                    <td>No audit trail, no version control</td>
+                    <td style="text-align: center;"><span class="negative">❌ Unknown</span></td>
+                    <td><strong>Git shows all changes, who made them, when</strong></td>
+                </tr>
+                <tr>
+                    <td>Manual = Human errors at 3am</td>
+                    <td style="text-align: center;"><span class="negative">❌ Incidents</span></td>
+                    <td><strong>Consistent, reliable, tested deployments</strong></td>
+                </tr>
+                <tr>
+                    <td>Reconfigure same infrastructure every 6 months</td>
+                    <td style="text-align: center;"><span class="negative">❌ Time waste</span></td>
+                    <td><strong><code>terraform apply</code> — 3 minutes</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="page-number">3</div>
+    </div>
+</div>
+
+<!-- PAGE 4: SOLUTION -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">The Solution</div>
+        <h2 class="page-title">Infrastructure as Code</h2>
+
+        <div style="margin-top: 50px;">
+            <div class="workflow-container" style="flex-direction: column; gap: 30px;">
+                <div style="display: flex; align-items: center; gap: 30px;">
+                    <div class="workflow-step" style="flex: 0.8;">
+                        <div class="step-number">1</div>
+                        <h4>Define</h4>
+                        <p>Write infrastructure as code (.tf files)</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step" style="flex: 0.8;">
+                        <div class="step-number">2</div>
+                        <h4>Plan</h4>
+                        <p>Preview changes (terraform plan)</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step" style="flex: 0.8;">
+                        <div class="step-number">3</div>
+                        <h4>Apply</h4>
+                        <p>Deploy to cloud (terraform apply)</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step" style="flex: 0.8;">
+                        <div class="step-number">4</div>
+                        <h4>Track</h4>
+                        <p>State file maps code to resources</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1)); padding: 30px; border-radius: 12px; margin-top: 50px; border-left: 4px solid var(--electric-blue);">
+                <h4 style="color: var(--electric-blue); margin-bottom: 15px; font-weight: 700;">Core Principle</h4>
+                <p style="color: var(--navy); font-size: 1.05rem;">
+                    <strong>Write infrastructure in version-controlled code → Collaborate via Git → Deploy consistently → Audit every change</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="page-number">4</div>
+    </div>
+</div>
+
+<!-- PAGE 5: THE 4 PILLARS (ARCHITECTURE) -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Core Architecture</div>
+        <h2 class="page-title">The 4 Pillars of Terraform</h2>
+
+        <div class="pillars-grid">
+            <div class="pillar">
+                <h3>🗂️ State File</h3>
+                <p style="margin-bottom: 15px; font-weight: 600; color: var(--text-secondary);">Single source of truth</p>
+                <ul>
+                    <li>JSON mapping code to resources</li>
+                    <li>Tracks resource IDs & attributes</li>
+                    <li>Must be encrypted & backed up</li>
+                    <li>Remote S3 backend for teams</li>
+                </ul>
+            </div>
+
+            <div class="pillar">
+                <h3>⚡ Providers</h3>
+                <p style="margin-bottom: 15px; font-weight: 600; color: var(--text-secondary);">Cloud connectors</p>
+                <ul>
+                    <li>200+ official providers</li>
+                    <li>AWS, Azure, GCP, Kubernetes</li>
+                    <li>Translate HCL → Cloud APIs</li>
+                    <li>Version control & compatibility</li>
+                </ul>
+            </div>
+
+            <div class="pillar">
+                <h3>🏗️ Resources</h3>
+                <p style="margin-bottom: 15px; font-weight: 600; color: var(--text-secondary);">Infrastructure objects</p>
+                <ul>
+                    <li>EC2, RDS, S3, VPCs</li>
+                    <li>Security groups, load balancers</li>
+                    <li>Networking components</li>
+                    <li>Every infrastructure piece</li>
+                </ul>
+            </div>
+
+            <div class="pillar">
+                <h3>📦 Modules</h3>
+                <p style="margin-bottom: 15px; font-weight: 600; color: var(--text-secondary);">Reusable components</p>
+                <ul>
+                    <li>Package related resources</li>
+                    <li>1000+ pre-built in registry</li>
+                    <li>Like functions in code</li>
+                    <li>Write once, deploy everywhere</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page-number">5</div>
+    </div>
+</div>
+
+<!-- PAGE 6: LEARNING PATH & TECHNOLOGY STACK -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Curriculum</div>
+        <h2 class="page-title">6-Level Mastery Path</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+            <div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Level 1: Foundations</h4>
+                        <p>Basics, first deployment, VPC & EC2 (2 weeks)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Level 2: Core Concepts</h4>
+                        <p>State management, modules, variables (2 weeks)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Level 3: Intermediate</h4>
+                        <p>Multi-account, data sources, workspaces (2 weeks)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Level 4: Production</h4>
+                        <p>Enterprise patterns, security, compliance (2 weeks)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Level 5: Advanced</h4>
+                        <p>Multi-region, testing, optimization (2 weeks)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Level 6: Expert</h4>
+                        <p>Scale, CI/CD, governance (2 weeks)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--navy); margin-bottom: 20px; font-weight: 700;">What You Deliver</h3>
+                <div style="background: var(--light-bg); padding: 25px; border-radius: 12px; border-left: 4px solid var(--electric-blue);">
+                    <p style="margin-bottom: 15px;"><strong>26 Expert Modules</strong><br/><span style="font-size: 0.9rem; color: var(--text-secondary);">A-Z comprehensive coverage</span></p>
+                    <p style="margin-bottom: 15px;"><strong>300+ Code Examples</strong><br/><span style="font-size: 0.9rem; color: var(--text-secondary);">Production-ready snippets</span></p>
+                    <p style="margin-bottom: 15px;"><strong>6+ Complete Labs</strong><br/><span style="font-size: 0.9rem; color: var(--text-secondary);">Deploy to real AWS</span></p>
+                    <p style="margin-bottom: 15px;"><strong>Real-World Patterns</strong><br/><span style="font-size: 0.9rem; color: var(--text-secondary);">Netflix, Google, Amazon</span></p>
+                    <p><strong>70-90 Hours Learning</strong><br/><span style="font-size: 0.9rem; color: var(--text-secondary);">12 weeks, 2-3 hrs/day</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-number">6</div>
+    </div>
+</div>
+
+<!-- PAGE 7: EXECUTION WORKFLOW -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Deployment Process</div>
+        <h2 class="page-title">Terraform Execution Flow</h2>
+
+        <div style="margin-top: 50px;">
+            <div class="architecture">
+                <div class="arch-layer">
+                    <h4>STEP 1: Parse & Validate</h4>
+                    <p>HCL files parsed → Syntax validated → Logic checked</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>STEP 2: Plan (Dry Run)</h4>
+                    <p>Preview all changes → Show what will be created/modified/deleted → Safe to review</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>STEP 3: Human Review</h4>
+                    <p>Developer approves plan → Ensures intention is correct → Catches mistakes</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>STEP 4: Apply</h4>
+                    <p>Provider plugin calls cloud APIs → Resources created in AWS/Azure/GCP</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>STEP 5: Track</h4>
+                    <p>State file updated → Maps code to resource IDs → Stores attributes</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 8px; margin-top: 30px; border-left: 4px solid var(--soft-green);">
+                <p style="color: var(--navy); font-weight: 600;">✓ <strong>Critical Best Practice:</strong> Always run <code style="background: white; padding: 2px 6px; border-radius: 4px;">terraform plan</code> before <code style="background: white; padding: 2px 6px; border-radius: 4px;">terraform apply</code>. 
+                This single step catches 99% of mistakes before they hit production.</p>
+            </div>
+        </div>
+
+        <div class="page-number">7</div>
+    </div>
+</div>
+
+<!-- PAGE 8: KEY FEATURES & CAPABILITIES -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Core Capabilities</div>
+        <h2 class="page-title">Key Features</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h4>Lightning Speed</h4>
+                <p>Deploy infrastructure in minutes, not hours</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h4>Reproducible</h4>
+                <p>Identical deployments every time, anytime</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h4>Version Controlled</h4>
+                <p>Git tracks all infrastructure changes</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h4>Auditable</h4>
+                <p>Complete history of who changed what</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h4>Collaborative</h4>
+                <p>Team code review before deployment</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h4>Reliable</h4>
+                <p>No manual mistakes, consistent results</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h4>Self-Documenting</h4>
+                <p>Code is your infrastructure documentation</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">∞</div>
+                <h4>Infinitely Scalable</h4>
+                <p>Same code manages 1 or 10,000 resources</p>
+            </div>
+        </div>
+
+        <div class="page-number">8</div>
+    </div>
+</div>
+
+<!-- PAGE 9: REAL-WORLD EXAMPLE -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Practical Example</div>
+        <h2 class="page-title">Deploy Your First Infrastructure (10 Minutes)</h2>
+
+        <div class="two-column" style="margin-top: 40px;">
+            <div>
+                <h3>What You Create</h3>
+                <ul>
+                    <li>VPC (Virtual Private Cloud)</li>
+                    <li>Public Subnet</li>
+                    <li>Security Group (Firewall)</li>
+                    <li>EC2 Instance (Web Server)</li>
+                    <li>Nginx installed automatically</li>
+                    <li>Public IP assigned</li>
+                </ul>
+
+                <h3 style="margin-top: 40px;">Project Structure</h3>
+                <ul style="font-family: 'Courier New', monospace; font-size: 0.9rem;">
+                    <li>main.tf (resources)</li>
+                    <li>variables.tf (inputs)</li>
+                    <li>outputs.tf (results)</li>
+                    <li>terraform.tfvars (config)</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Deployment Steps</h3>
+                <div style="background: var(--navy); color: white; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.8;">
+                    <p>$ terraform init</p>
+                    <p style="color: #10b981;">✓ Downloaded providers</p>
+                    <p style="margin-top: 15px;">$ terraform plan</p>
+                    <p style="color: #10b981;">✓ Plan: 6 to add</p>
+                    <p style="margin-top: 15px;">$ terraform apply</p>
+                    <p style="color: #10b981;">✓ 6 resources created</p>
+                    <p style="margin-top: 15px;">$ terraform output</p>
+                    <p style="color: #00d4ff;">instance_ip: 54.123.45.67</p>
+                </div>
+
+                <div style="background: rgba(0, 212, 255, 0.1); padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid var(--cyan);">
+                    <p style="font-size: 0.9rem; color: var(--navy);"><strong>Result:</strong> Open browser → http://54.123.45.67 → See "Deployed with Terraform!" ✓</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-number">9</div>
+    </div>
+</div>
+
+<!-- PAGE 10: RESULTS & IMPACT -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Business Impact</div>
+        <h2 class="page-title">Measurable Results</h2>
+
+        <div class="results-container">
+            <div class="result-card">
+                <div class="result-number">60x</div>
+                <div class="result-label">Faster Deployment</div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">From 2 hours manual to 3 minutes automated</p>
+            </div>
+            <div class="result-card">
+                <div class="result-number">100%</div>
+                <div class="result-label">Reproducibility</div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">Identical infrastructure every deployment</p>
+            </div>
+            <div class="result-card">
+                <div class="result-number">0</div>
+                <div class="result-label">Manual Errors</div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">Consistent, tested, verified deployments</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1)); padding: 35px; border-radius: 12px; border-left: 4px solid var(--electric-blue);">
+            <h3 style="color: var(--navy); margin-bottom: 20px; font-weight: 700;">Career Impact</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 10px;">
+                        <strong style="color: var(--navy);">Earning Potential:</strong><br/>
+                        $150K - $300K+ annually
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                        <strong style="color: var(--navy);">Market Demand:</strong><br/>
+                        10,000+ open positions
+                    </p>
+                </div>
+                <div>
+                    <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 10px;">
+                        <strong style="color: var(--navy);">Job Roles:</strong><br/>
+                        DevOps Engineer, SRE, Cloud Architect
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                        <strong style="color: var(--navy);">Remote Friendly:</strong><br/>
+                        Work from anywhere
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-number">10</div>
+    </div>
+</div>
+
+<!-- PAGE 11: CRITICAL MISTAKES & SOLUTIONS -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Risk Mitigation</div>
+        <h2 class="page-title">Common Mistakes & Solutions</h2>
+
+        <div style="margin-top: 40px;">
+            <div class="challenge-solution">
+                <div class="challenge">
+                    <h4>❌ Committing .tfstate to Git</h4>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">File contains passwords, API keys, database credentials</p>
+                </div>
+                <div class="cs-arrow">→</div>
+                <div class="solution">
+                    <h4>✓ Remote S3 Backend</h4>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Encrypted, versioned, backed up, audit logged</p>
+                </div>
+            </div>
+
+            <div class="challenge-solution" style="margin-top: 20px;">
+                <div class="challenge">
+                    <h4>❌ Team conflicts on state</h4>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Two engineers apply simultaneously → Corruption</p>
+                </div>
+                <div class="cs-arrow">→</div>
+                <div class="solution">
+                    <h4>✓ DynamoDB Locking</h4>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Only one apply at a time → State stays clean</p>
+                </div>
+            </div>
+
+            <div class="challenge-solution" style="margin-top: 20px;">
+                <div class="challenge">
+                    <h4>❌ No terraform plan review</h4>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Apply changes without previewing → Disasters</p>
+                </div>
+                <div class="cs-arrow">→</div>
+                <div class="solution">
+                    <h4>✓ Always Plan First</h4>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Review → Approve → Apply → Catches 99% mistakes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-number">11</div>
+    </div>
+</div>
+
+<!-- PAGE 12: DEPLOYMENT ROADMAP -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Implementation Timeline</div>
+        <h2 class="page-title">12-Week Learning Roadmap</h2>
+
+        <div class="timeline" style="margin-top: 40px;">
+            <div class="timeline-item">
+                <h4>Weeks 1-2: Foundations</h4>
+                <p>LAB 1: Deploy VPC + EC2 + Nginx from scratch. Understand state file concept. Complete hands-on.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Weeks 3-4: Core Concepts</h4>
+                <p>LAB 2: Multi-tier application with modules. Remote state (S3 + DynamoDB). Variables & outputs.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Weeks 5-6: Intermediate</h4>
+                <p>LAB 3: Multi-environment setup (dev/staging/prod). Data sources. Workspaces. Debugging techniques.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Weeks 7-8: Production Patterns</h4>
+                <p>LAB 4: Enterprise deployment. Secrets management. Compliance. CloudTrail audit logging. Monitoring.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Weeks 9-10: Advanced</h4>
+                <p>LAB 5: Microservices on ECS/K8s. Multi-region. Disaster recovery. Testing & validation frameworks.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Weeks 11-12: Expert Mastery</h4>
+                <p>LAB 6: CI/CD integration (GitHub Actions, Atlantis). Scale to 10K+ resources. Policy as code.</p>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.1)); padding: 25px; border-radius: 12px; margin-top: 40px; border-top: 3px solid var(--electric-blue);">
+            <p style="color: var(--navy); font-weight: 600; margin-bottom: 10px;">💡 Investment Required</p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                <strong>12 weeks</strong> × <strong>2-3 hours/day</strong> = <strong>Production-grade expertise</strong> worth $50K+ in bootcamp training
+            </p>
+        </div>
+
+        <div class="page-number">12</div>
+    </div>
+</div>
+
+<!-- PAGE 13: COMPLETE SYSTEM OVERVIEW -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Complete Architecture</div>
+        <h2 class="page-title">Terraform Ecosystem</h2>
+
+        <div style="margin-top: 40px; background: white; padding: 40px; border-radius: 12px; border: 2px solid var(--border);">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, var(--electric-blue), var(--purple)); padding: 15px 30px; border-radius: 8px; color: white; font-weight: 600; margin-bottom: 20px;">
+                    Developer / Infrastructure Team
+                </div>
+                <div style="font-size: 1.8rem; color: var(--cyan);">⬇</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                <div style="background: var(--light-bg); padding: 20px; border-radius: 8px; border: 2px solid var(--electric-blue); text-align: center;">
+                    <p style="font-weight: 600; color: var(--navy); margin-bottom: 8px;">Write .tf Files</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">HCL language, modular structure</p>
+                </div>
+                <div style="background: var(--light-bg); padding: 20px; border-radius: 8px; border: 2px solid var(--purple); text-align: center;">
+                    <p style="font-weight: 600; color: var(--navy); margin-bottom: 8px;">Terraform Engine</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Parse, validate, plan, apply</p>
+                </div>
+                <div style="background: var(--light-bg); padding: 20px; border-radius: 8px; border: 2px solid var(--cyan); text-align: center;">
+                    <p style="font-weight: 600; color: var(--navy); margin-bottom: 8px;">Cloud Providers</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">AWS, Azure, GCP, Kubernetes</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; font-size: 1.8rem; color: var(--soft-green);">⬇</div>
+
+            <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(37, 99, 235, 0.1)); padding: 25px; border-radius: 8px; text-align: center; border: 2px solid var(--soft-green);">
+                <p style="font-weight: 600; color: var(--navy); margin-bottom: 8px;">✓ Infrastructure Deployed</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">VPCs, Servers, Databases, Networks, Security Groups, Load Balancers, Auto-Scaling, etc.</p>
+            </div>
+
+            <div style="text-align: center; font-size: 1.8rem; color: var(--cyan); margin-top: 30px;">⬇</div>
+
+            <div style="background: var(--light-bg); padding: 20px; border-radius: 8px; border: 2px solid var(--electric-blue); text-align: center;">
+                <p style="font-weight: 600; color: var(--navy); margin-bottom: 8px;">State File (S3)</p>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Maps code to resources, tracks changes, enables rollback</p>
+            </div>
+        </div>
+
+        <div class="page-number">13</div>
+    </div>
+</div>
+
+<!-- PAGE 14: KEY TAKEAWAYS -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Core Concepts</div>
+        <h2 class="page-title">Key Takeaways</h2>
+
+        <div class="takeaways" style="margin-top: 40px;">
+            <div class="takeaway">
+                <div class="takeaway-icon">⚡</div>
+                <p><strong>Infrastructure as Code is Essential</strong> — Every modern company uses it. It's not optional anymore; it's required for DevOps, SRE, and Cloud Architecture roles.</p>
+            </div>
+            <div class="takeaway">
+                <div class="takeaway-icon">🔒</div>
+                <p><strong>State Management is Critical</strong> — Use remote S3 + DynamoDB backend with encryption. Local state files are dangerous (credentials exposed, team conflicts, data loss).</p>
+            </div>
+            <div class="takeaway">
+                <div class="takeaway-icon">✓</div>
+                <p><strong>Always Plan Before Apply</strong> — <code style="background: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">terraform plan</code> is your safety net. It shows exactly what will change and catches 99% of mistakes.</p>
+            </div>
+            <div class="takeaway">
+                <div class="takeaway-icon">📈</div>
+                <p><strong>Mastery Unlocks Career Growth</strong> — Terraform expertise is worth $150K-$300K+ annually with 10,000+ open positions. This is a high-demand, high-paying skill.</p>
+            </div>
+        </div>
+
+        <div class="page-number">14</div>
+    </div>
+</div>
+
+<!-- PAGE 15: CONCLUSION & NEXT STEPS -->
+<div class="page page-light">
+    <div class="page-content">
+        <div class="page-header">Getting Started</div>
+        <h2 class="page-title">Your Learning Journey</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+            <div>
+                <h3 style="color: var(--navy); margin-bottom: 20px; font-weight: 700;">Recommended Next Steps</h3>
+                <div class="takeaways" style="gap: 15px;">
+                    <div class="takeaway" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 15px;">
+                        <p style="margin: 0;"><strong style="color: var(--navy);">1. Set Up Your Environment</strong><br/><span style="font-size: 0.85rem;">Install Terraform, AWS CLI, VS Code with Terraform extension</span></p>
+                    </div>
+                    <div class="takeaway" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 15px;">
+                        <p style="margin: 0;"><strong style="color: var(--navy);">2. Complete Lab 1</strong><br/><span style="font-size: 0.85rem;">Deploy VPC + EC2 + Nginx. Get comfortable with basics first.</span></p>
+                    </div>
+                    <div class="takeaway" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 15px;">
+                        <p style="margin: 0;"><strong style="color: var(--navy);">3. Learn State Management</strong><br/><span style="font-size: 0.85rem;">Most critical module. Understand S3 + DynamoDB backend setup.</span></p>
+                    </div>
+                    <div class="takeaway" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 15px;">
+                        <p style="margin: 0;"><strong style="color: var(--navy);">4. Build Multi-Tier App</strong><br/><span style="font-size: 0.85rem;">Use modules to organize web, app, and database layers.</span></p>
+                    </div>
+                    <div class="takeaway" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 15px;">
+                        <p style="margin: 0;"><strong style="color: var(--navy);">5. Complete Full Course</strong><br/><span style="font-size: 0.85rem;">Work through all 6 levels, all 26 modules, all 6+ labs.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--navy); margin-bottom: 20px; font-weight: 700;">Why This Course</h3>
+                <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--electric-blue);">
+                    <p style="color: var(--navy); font-weight: 600; margin-bottom: 15px;">✓ 15+ Years Production Experience</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">
+                        Instructor trained 500+ engineers, deployed 100+ systems at scale (Netflix, Google, Amazon patterns)
+                    </p>
+
+                    <p style="color: var(--navy); font-weight: 600; margin-bottom: 15px;">✓ Real-World Labs</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">
+                        Not toy projects—deploy actual infrastructure to AWS. See results immediately.
+                    </p>
+
+                    <p style="color: var(--navy); font-weight: 600; margin-bottom: 15px;">✓ Production Patterns</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Learn what actually works in enterprise environments. Avoid mistakes that cost thousands.
+                    </p>
+                </div>
+
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 8px; margin-top: 20px; border: 2px solid var(--soft-green); text-align: center;">
+                    <p style="color: var(--navy); font-weight: 700; font-size: 1.1rem; margin-bottom: 5px;">The Only Thing Left Is to START</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Everything you need is here. Your future self will thank you.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-number">15</div>
+    </div>
+</div>
+
+<!-- PAGE 16: THANK YOU -->
+<div class="page page-cover">
+    <div class="thank-you-content">
+        <h1>Thank You</h1>
+        <p>Begin Your Terraform Mastery Journey</p>
+        
+        <div class="contact-info" style="margin-top: 80px;">
+            <p style="margin-bottom: 30px; font-size: 1.05rem;">
+                <strong>Terraform Professional Expert Mastery</strong><br/>
+                Complete Infrastructure as Code Training<br/>
+                Premium Edition v4.0
+            </p>
+            <p style="margin-bottom: 40px; color: var(--electric-blue); font-size: 1rem;">
+                15+ Years of Production Infrastructure Experience<br/>
+                500+ Engineers Trained | 100+ Global-Scale Deployments
+            </p>
+            <p style="font-size: 0.95rem; color: #7dd3fc;">
+                Ready to become a Terraform Expert?<br/>
+                Deploy your first infrastructure today.
+            </p>
+        </div>
+    </div>
+    <div class="page-number">16</div>
+</div>
+
+</body>
+</html>
