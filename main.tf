@@ -1,3 +1,4 @@
+```hcl
 terraform {
   required_providers {
     aws = {
@@ -9,7 +10,6 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
-
 
 
 # ========================================
@@ -107,11 +107,31 @@ data "aws_ami" "amazon_linux" {
 
 
 # ========================================
-# Existing IAM Role
+# IAM Role
 # ========================================
 
-data "aws_iam_role" "iam_1" {
+resource "aws_iam_role" "iam_1" {
   name = "iam-1"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+
+    Statement = [
+      {
+        Effect = "Allow"
+
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+
+  tags = {
+    Name = "iam-1"
+  }
 }
 
 
@@ -121,7 +141,7 @@ data "aws_iam_role" "iam_1" {
 
 resource "aws_iam_instance_profile" "iam_1" {
   name = "day1-iam-profile"
-  role = data.aws_iam_role.iam_1.name
+  role = aws_iam_role.iam_1.name
 }
 
 
@@ -130,13 +150,13 @@ resource "aws_iam_instance_profile" "iam_1" {
 # ========================================
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.public.id
-
+  ami                  = data.aws_ami.amazon_linux.id
+  instance_type        = "t2.micro"
+  subnet_id            = aws_subnet.public.id
   iam_instance_profile = aws_iam_instance_profile.iam_1.name
 
   tags = {
     Name = "day1-ec2"
   }
 }
+```
