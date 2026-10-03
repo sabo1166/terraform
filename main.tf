@@ -1,4 +1,4 @@
-```hcl
+
 terraform {
   required_providers {
     aws = {
@@ -159,4 +159,4 @@ resource "aws_instance" "web" {
     Name = "day1-ec2"
   }
 }
-```
+
